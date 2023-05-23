@@ -1,5 +1,5 @@
 export const ROUTES = {
-  Home: "/",
+  Home: "/home",
   About: "/about",
   CreateForm: "/create-form",
   Workflows: "/workflows",
@@ -7,7 +7,7 @@ export const ROUTES = {
   AddPermission: "/add-permission",
   SelectStep: "/selectStep",
   CreateProcess: "/createProcess",
-  Login: "/login",
+  Login: "/",
   addUser: "/users/add",
   getUser: "/users",
   getItems: "/getItems",
