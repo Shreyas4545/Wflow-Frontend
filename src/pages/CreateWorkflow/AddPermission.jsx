@@ -168,7 +168,8 @@ const AddPermission = () => {
       console.log(data);
       if (data.success) {
         toast.success("Succesfully Added Process !");
-        localStorage.clear();
+        localStorage.removeItem("sections");
+        localStorage.removeItem("fields");
         setTimeout(() => {
           navigate(ROUTES.getProcess);
         }, 2000);

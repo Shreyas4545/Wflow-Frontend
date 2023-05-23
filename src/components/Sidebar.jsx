@@ -9,7 +9,7 @@ const SidebarOptions = [
   {
     name: "Dashboard",
     icon: <UserOutlined />,
-    route: "/",
+    route: "/home",
   },
   {
     name: "Input Request",
