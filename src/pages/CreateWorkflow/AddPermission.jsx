@@ -168,7 +168,10 @@ const AddPermission = () => {
       console.log(data);
       if (data.success) {
         toast.success("Succesfully Added Process !");
-        navigate(ROUTES.getProcess);
+        localStorage.clear();
+        setTimeout(() => {
+          navigate(ROUTES.getProcess);
+        }, 2000);
       }
     } catch (err) {
       toast.error("Something went wrong !", {

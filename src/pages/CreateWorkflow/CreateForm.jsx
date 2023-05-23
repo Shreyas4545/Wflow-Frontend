@@ -55,7 +55,6 @@ const CreateForm = () => {
     date: "date",
     time: "time",
     curreny: "currency",
-    // doc:'document'
   };
 
   //All useState Details
@@ -111,8 +110,8 @@ const CreateForm = () => {
 
   const initialField = {
     title: "Field",
-    type: types.shortAnswer,
     placeHolder: "Enter Your Answer",
+    type: types.shortAnswer,
     options: [
       {
         id: 1,
@@ -122,13 +121,35 @@ const CreateForm = () => {
     required: true,
   };
 
-  const [fields, setFields] = useState([
-    {
-      id: 1,
-      section_id: 1,
-      ...initialField,
-    },
-  ]);
+  const [fields, setFields] = useState([]);
+
+  const update = async() =>{
+    try{
+        let data = [];
+        data.push({
+          id: 1,
+          section_id: 1,
+          title: "Field",
+          placeHolder: "Enter Your Answer",
+          type: "short",
+          options: [
+            {
+              id: 1,
+              value: "Option 1",
+            },
+          ],
+          required: true,
+        })
+        await setFields(data);
+        console.log("Fields are",fields);
+      }catch(err){
+        console.log(err);
+      }
+  }
+
+  useEffect(() => {
+    update()
+  }, []);
 
   //For refreshing the component
   const [flag, setFlag] = useState(false);
@@ -194,6 +215,7 @@ const CreateForm = () => {
 
   const handleSubmit = async () => {
     const newFields = [...fields];
+    console.log(fields);
     newFields.map((item) => {
       item.options = item?.options?.map((item1) => item1?.value || "") || [];
       item.type_of_field = item.type;
